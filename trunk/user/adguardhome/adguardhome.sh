@@ -137,6 +137,7 @@ fi
 }
 
 
+chmod 777 /tmp/AdGuardHome/AdGuardHome
 
 start_adg(){
     mkdir -p /tmp/AdGuardHome
