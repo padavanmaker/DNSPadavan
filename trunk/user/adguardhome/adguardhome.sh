@@ -136,32 +136,32 @@ fi
 
 dl_adg() {
 logger -t "AdGuardHome" "下载AdGuardHome"
-curl -k -s -o /tmp/AdGuardHome/AdGuardHome --connect-timeout 10 --retry 3 https://raw.githubusercontent.com/vb1980/Padavan-KVR/main/trunk/user/adguardhome/AdGuardHome
-if [ ! -f "/tmp/AdGuardHome/AdGuardHome" ]; then
+curl -k -s -o /etc/storage/tmp/AdGuardHome/AdGuardHome --connect-timeout 10 --retry 3 https://github.com/chongshengB/rt-n56u/blob/master/trunk/user/adguardhome/AdGuardHome?raw=true
+if [ ! -f "/etc/storage/tmp/AdGuardHome/AdGuardHome" ]; then
 logger -t "AdGuardHome" "AdGuardHome下载失败，请检查是否能正常访问github!程序将退出。"
 nvram set adg_enable=0
 exit 0
 else
 logger -t "AdGuardHome" "AdGuardHome下载成功。"
-chmod +x /tmp/AdGuardHome/AdGuardHome
+chmod +x /etc/storage/tmp/AdGuardHome/AdGuardHome
 fi
 }
 
 start_adg() {
-  mkdir -p /tmp/AdGuardHome
+  mkdir -p /etc/storage/tmp/AdGuardHome
   mkdir -p /etc/storage/AdGuardHome
-  if [ ! -f "/tmp/AdGuardHome/AdGuardHome" ]; then
+  if [ ! -f "/etc/storage/tmp/AdGuardHome/AdGuardHome" ]; then
   dl_adg
   fi
   getconfig
   change_dns
   set_iptable
   logger -t "AdGuardHome" "运行AdGuardHome"
-  eval "/tmp/AdGuardHome/AdGuardHome -c $adg_file -w /tmp/AdGuardHome -v" &
+  eval "/etc/storage/tmp/AdGuardHome/AdGuardHome -c $adg_file -w /etc/storage/tmp/AdGuardHome -v" &
 }
 
 stop_adg() {
-rm -rf /tmp/AdGuardHome
+rm -rf /etc/storage/tmp/AdGuardHome
 killall -9 AdGuardHome
 del_dns
 clear_iptable
