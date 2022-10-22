@@ -132,7 +132,7 @@ fi
 
 dl_adg(){
 logger -t "AdGuardHome" "下载AdGuardHome"
-#wget --no-check-certificate -O /tmp/AdGuardHome.tar.gz https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.101.0/AdGuardHome_linux_mipsle.tar.gz
+#wget --no-check-certificate -O /tmp/AdGuardHome.tar.gz https://github.com/padavanmaker/DNSPadavan/blob/main/trunk/user/adguardhome/AdGuardHome_linux_mipsle.tar.gz?raw=true
 curl -k -s -o /tmp/AdGuardHome/AdGuardHome --connect-timeout 10 --retry 3 https://github.com/chongshengB/rt-n56u/blob/master/trunk/user/adguardhome/AdGuardHome?raw=true
 if [ ! -f "/tmp/AdGuardHome/AdGuardHome" ]; then
 logger -t "AdGuardHome" "AdGuardHome下载失败，请检查是否能正常访问github!程序将退出。"
