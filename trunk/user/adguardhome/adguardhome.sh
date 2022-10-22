@@ -103,18 +103,7 @@ tls:
   certificate_chain: ""
   private_key: ""
 filters:
-- enabled: true
-  url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
-  name: AdGuard Simplified Domain Names filter
-  id: 1
-- enabled: true
-  url: https://adaway.org/hosts.txt
-  name: AdAway
-  id: 2
-- enabled: true
-  url: https://anti-ad.net/easylist.txt
-  name: anti-AD
-  id: 3
+
 user_rules: []
 dhcp:
   enabled: false
